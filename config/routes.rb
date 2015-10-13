@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-resources :list
+  resources :list
 
-  root "todolist#index"
- 
+ # "todolist#index"
+
+ #"list/:id" => "list#show"
+
  #get "todolist" => "todolist#index"
 
 end

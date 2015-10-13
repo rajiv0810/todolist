@@ -1,16 +1,17 @@
 
-<%= form_for :list_index , url: list_index_path do |f| %>
+
+<%= form_for @task do |f| %>
 <p>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
+  <%= f.label :content %><br>
+  <%= f.text_field :content %>
 </p>
 
 <p>
-  <%= f.label :Items %><br>
-  <%= f.text_area :text %>
+  <%= f.label :completed %><br>
+  <%= f.text_area :completed %>
 </p>
 
 <p>
-  <%= f.submit %>
+  <%= f.submit "Submit" %>
 </p>
 <% end %>

@@ -1,10 +1,28 @@
 class ListController < ApplicationController
 
+	def index
+		@task = Task.new
+	end
+
+	def show
+		 @task = Task.find(params[:id])
+  	end
+
 	def new
-		
+		@task = Task.new
 	end
 
 	def create
-		render plain: params[:list].inspect
+		@task = Task.new(task_params)
+
+		@task.save
+		redirect_to @task
+	end
+
+	private
+  	def task_params
+    params.require(:task).permit(:title, :text)
   	end
+
+
 end
