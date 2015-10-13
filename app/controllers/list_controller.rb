@@ -5,8 +5,8 @@ class ListController < ApplicationController
 	end
 
 	def show
-		 @task = Task.find(params[:id])
-  	end
+		@task = Task.find(params[:id])
+	end
 
 	def new
 		@task = Task.new
@@ -15,14 +15,17 @@ class ListController < ApplicationController
 	def create
 		@task = Task.new(task_params)
 
-		@task.save
-		redirect_to @task
+		if @task.save
+			redirect_to @task
+		else
+			render 'new'
+		end
 	end
 
 	private
-  	def task_params
-    params.require(:task).permit(:title, :text)
-  	end
+	def task_params
+		params.require(:task).permit(:title, :text)
+	end
 
 
 end

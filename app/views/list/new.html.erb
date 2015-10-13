@@ -1,6 +1,6 @@
 
 
-<%= form_for @task do |f| %>
+<%= form_for :task, url: :list_index do |f| %>
 <p>
   <%= f.label :content %><br>
   <%= f.text_field :content %>
